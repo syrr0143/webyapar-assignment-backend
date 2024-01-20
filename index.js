@@ -11,6 +11,7 @@ const allUserRoutes = require ('./routes/allUsers');
 const deleteUserRoutes = require ('./routes/deleteUser');
 const updateUserRoutes = require ('./routes/updateDetails');
 const app = express();
+app.use(cors());
 require("dotenv").config();
 
 // Connect to MongoDB
@@ -22,16 +23,7 @@ mongoose.connect(databaseConfig.url, databaseConfig.options)
     console.error('Error connecting to MongoDB:', error);
   });
 
-// app.use(
-// 	expressSession({
-// 	  secret: 'your-secret-key', // Replace with a secret key for session encryption
-// 	  resave: false,
-// 	  saveUninitialized: false,
-// 	  cookie: {
-// 		maxAge: 24 * 60 * 60 * 1000, // 24 hours
-// 	  },
-// 	})
-//   );
+
 app.use(express.json());
 // Routes
 app.use('/',authRoutes);

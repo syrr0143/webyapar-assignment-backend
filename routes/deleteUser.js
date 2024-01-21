@@ -16,7 +16,7 @@ router.delete('/deleteUser/:userId',adminMiddleware,async (req,res)=>{
         }
 
         // Delete the user
-        await User.findOneAndDelete({ UserId: userId });
+        await user.findOneAndDelete({ UserId: userId });
 
         return res.status(200).json({ message: 'User deleted successfully' });
     } catch (error) {

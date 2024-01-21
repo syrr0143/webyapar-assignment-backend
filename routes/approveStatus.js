@@ -4,9 +4,9 @@ const User = require('../model/user'); // Make sure to import your User model
 const adminMiddleware = require('../middleware/adminMiddleware')
 
 // Example route for marking a user as done (approve)
-router.patch('/markAsDone/:userId',adminMiddleware ,async (req, res) => {
+router.patch('/markAsDone/:userId' ,async (req, res) => {
     try {
-        const admin = req.admin;
+        
         
 
         // Access the user's UserId to be marked as done

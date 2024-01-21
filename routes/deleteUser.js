@@ -9,14 +9,14 @@ router.delete('/deleteUser/:userId',adminMiddleware,async (req,res)=>{
         const userId = req.params.userId;
 
         // Check if the admin is trying to delete a user in their own hostel
-        const userToDelete = await user.findOne({ _id: userId });
+        const userToDelete = await user.findOne({ UserId: userId });
 
         if (!userToDelete) {
             return res.status(404).json({ error: 'User not found or unauthorized access' });
         }
 
         // Delete the user
-        await user.findByIdAndDelete(userId);
+        await User.findOneAndDelete({ UserId: userId });
 
         return res.status(200).json({ message: 'User deleted successfully' });
     } catch (error) {
@@ -25,3 +25,4 @@ router.delete('/deleteUser/:userId',adminMiddleware,async (req,res)=>{
     }
 })
 module.exports= router;
+

@@ -10,6 +10,7 @@ const authRoutes = require ('./routes/createUser');
 const allUserRoutes = require ('./routes/allUsers');
 const deleteUserRoutes = require ('./routes/deleteUser');
 const updateUserRoutes = require ('./routes/updateDetails');
+const searchRoutes = require ('./routes/search');
 const app = express();
 app.use(cors());
 require("dotenv").config();
@@ -31,6 +32,7 @@ app.use('/',authRoutes);
 app.use('/',allUserRoutes);
 app.use('/',deleteUserRoutes);
 app.use('/',updateUserRoutes);
+app.use('/',searchRoutes);
 
 
 app.get('/', (req,res)=> {

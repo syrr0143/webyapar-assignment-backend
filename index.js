@@ -15,13 +15,14 @@ app.use(cors());
 require("dotenv").config();
 
 // Connect to MongoDB
-mongoose.connect(databaseConfig.url, databaseConfig.options)
+mongoose.connect(process.env.mongodburl, databaseConfig.options)
   .then(() => {
     console.log('Connected to MongoDB');
   })
   .catch((error) => {
     console.error('Error connecting to MongoDB:', error);
   });
+  
 
 
 app.use(express.json());

@@ -6,8 +6,8 @@ const userSchema= new mongoose.Schema({
     FullName:{type:String,required:true},
     Password:{type:String , required :true},
     UserId:{type:String,required:true},
-    ApprovalStatus:{type:Boolean},
-    Photo:{type:String}
+    ApprovalStatus:{type:Boolean, default: false},
+    Photo:{type:String }
 })
 
 

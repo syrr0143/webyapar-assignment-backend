@@ -25,6 +25,7 @@ router.get('/search', adminMiddleware, async (req, res) => {
                 FullName: user.FullName,
                 UserId: user.UserId,
                 Photo: user.Photo,
+                ApprovalStatus:user.ApprovalStatus
                 // Add more fields as needed
             }));
             res.status(200).json({ users: sanitizedUsers });
